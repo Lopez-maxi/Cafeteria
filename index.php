@@ -25,7 +25,27 @@ $sentencia= $conexion->prepare("SELECT * FROM `tbl_configuraciones`");
 $sentencia->execute();
 $lista_configuraciones=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 
-
+if($_POST){
+  
+    //recepcionamos los valores del formulario
+    $nombre=(isset($_POST['nombre']))?$_POST['nombre']:"";
+    $correo=(isset($_POST['correo']))?$_POST['correo']:"";
+    $fecha=(isset($_POST['fecha']))?$_POST['fecha']:"";
+    $hora=(isset($_POST['hora']))?$_POST['hora']:"";
+  
+    $sentencia= $conexion->prepare("INSERT INTO `tbl_reservas` (`id`,`nombre`,`correo`,`fecha`, `hora`)
+    VALUES (NULL, :nombre, :correo, :fecha, :hora);");
+  
+    $sentencia->bindParam(":nombre",$nombre);
+    $sentencia->bindParam(":correo",$correo);
+    $sentencia->bindParam(":fecha",$fecha);
+    $sentencia->bindParam(":hora",$hora);
+  
+  
+    $sentencia->execute();  
+    $mensaje="Registro agregado con exito.";
+    header("Location:index.php?mensaje=".$mensaje);
+  }
 
 ?>
 
@@ -214,7 +234,7 @@ $lista_configuraciones=$sentencia->fetchAll(PDO::FETCH_ASSOC);
                                     <div class="time" id="hora" data-target-input="nearest">
                                         <input type="text" class="form-control bg-transparent border-primary p-4 datetimepicker-input" placeholder="Hora"  name="hora" data-target="#time" data-toggle="datetimepicker"/>
                                     </div>
-                                </div>                             
+                                </div>                              
                                 <div>
                                     <button type="submit" class="btn btn-primary btn-block font-weight-bold py-3" ><?php echo $lista_configuraciones[16]['valor'];?></button>
                                 </div>
