@@ -47,6 +47,88 @@ if($_POST){
     header("Location:index.php?mensaje=".$mensaje);
   }
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
+require 'PHP-mailer/Exception.php';
+require 'PHP-mailer/PHPMailer.php';
+require 'PHP-mailer/SMTP.php';
+
+
+$errores = '';
+$enviado = '';
+$ruta = 'img/fotos/logos/2.jpg';
+// Comprobamos que el formulario haya sido enviado.
+if (isset($_POST['submit'])) {
+	$nombre = $_POST['nombre'];
+	$correo = $_POST['correo'];
+	$fecha = $_POST['fecha'];
+    $hora = $_POST['hora'];
+
+// Comprobamos que el nombre no este vacio.
+	if (!empty($nombre)) {
+
+		// Saneamos el nombre para eliminar caracteres que no deberian estar.
+		$nombre = trim($nombre);
+		$nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
+		
+        // Comprobamos que el nombre despues de quitar los caracteres ilegales no este vacio.
+		if ($nombre == "") {
+			$errores.= 'Por favor ingresa un nombre.<br />';
+		}
+	} else {
+		$errores.= 'Por favor ingresa un nombre.<br />';
+	}
+
+	if (!empty($correo)) {
+		$correo = filter_var($correo, FILTER_SANITIZE_EMAIL);
+		// Comprobamos que sea un correo valido
+		if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+			$errores.= "Por favor ingresa un correo valido.<br />";
+		}
+	} else {
+		$errores.= 'Por favor ingresa un correo.<br />';
+	}
+
+// Comprobamos si hay errores, si no hay entonces enviamos.
+	if (!$errores) {
+		
+		//Create an instance; passing `true` enables exceptions
+		$mail = new PHPMailer(true);
+
+try {
+    //Server settings
+    $mail->SMTPDebug = 0;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'smtp.office365.com';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'malusacoffee@hotmail.com';                     //SMTP username
+    $mail->Password   = 'Malusa2024';                               //SMTP password
+    $mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
+    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+    //Recipients
+    $mail->setFrom('malusacoffee@hotmail.com');
+    $mail->addAddress($correo);     //Add a recipient
+    
+    
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = 'Cafeteria Malusa. Reserva';
+    $mail->Body    = '<h2>Sr/a ' .$nombre .' Usted realizo una reservacion para el dia<h2/> ' .$fecha .' a las '. $hora. 
+    ' Hs<h2/><br/><br/> <h2>GRACIAS POR ELEGIRNOS<h2/>';
+    $mail->AddEmbeddedImage($ruta,$cid,$cid);
+    $mail->send();
+
+    
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
+		
+	}
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -215,28 +297,29 @@ if($_POST){
                         <div class="text-center p-5" style="background: rgba(51, 33, 29, .8);">
                             <h1 class="text-white mb-4 mt-5"><?php echo $lista_configuraciones[15]['valor'];?></h1>
 
-                            <form action="" method="post">
-
+                            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
                                 <div class="form-group">
                                     <input type="text" id="nombre" class="form-control bg-transparent border-primary p-4" placeholder="Nombre" name="nombre"
-                                        required="required" />
+                                        required="required" value="<?php if(!$enviado && isset($nombre))?>"/>
                                 </div>
                                 <div class="form-group">
                                     <input type="email" id="correo" class="form-control bg-transparent border-primary p-4" placeholder="Email" name="correo"
-                                        required="required" />
+                                        required="required" value="<?php if(!$enviado && isset($correo))?>"/>
                                 </div>
                                 <div class="form-group">
                                     <div class="date" id="fecha" data-target-input="nearest">
-                                        <input type="text"  class="form-control bg-transparent border-primary p-4 datetimepicker-input" placeholder="Fecha" name="fecha" data-target="#date" data-toggle="datetimepicker"/>
+                                        <input type="text"  class="form-control bg-transparent border-primary p-4 datetimepicker-input" placeholder="Fecha" 
+                                        name="fecha" data-target="#date" data-toggle="datetimepicker" value="<?php if(!$enviado && isset($fecha))?>"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="time" id="hora" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-transparent border-primary p-4 datetimepicker-input" placeholder="Hora"  name="hora" data-target="#time" data-toggle="datetimepicker"/>
+                                        <input type="text" class="form-control bg-transparent border-primary p-4 datetimepicker-input" placeholder="Hora"  
+                                        name="hora" data-target="#time" data-toggle="datetimepicker" value="<?php if(!$enviado && isset($hora))?>"/>
                                     </div>
                                 </div>                              
                                 <div>
-                                    <button type="submit" class="btn btn-primary btn-block font-weight-bold py-3" ><?php echo $lista_configuraciones[16]['valor'];?></button>
+                                    <button type="submit" name="submit" class="btn btn-primary btn-block font-weight-bold py-3" ><?php echo $lista_configuraciones[16]['valor'];?></button>
                                 </div>
 
                             </form>
