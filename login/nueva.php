@@ -28,9 +28,10 @@
 				<br>
 				<form action="new_pass.php" method="post">
 				<div class="form-group">
-		      			<input type="text" name="new_password" id="new_password" class="form-control" placeholder="Nueva contraseña">
-						  <input type="hidden" name="id" value="<?php echo $_GET['id'];?>" >
+		      			<input type="password" id="password-field" name="new_password" id="new_password" class="form-control" placeholder="Nueva contraseña">
+						<input type="hidden" name="id" value="<?php echo $_GET['id'];?>" >
 		      		</div><br>
+
 	            <div class="form-group">
 	            	<button type="submit" name="submit" class="form-control btn btn-primary submit px-3">Reestablecer</button>
 	            </div>
