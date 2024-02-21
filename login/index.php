@@ -12,20 +12,22 @@ if($_POST){
 		 WHERE usuario=:usuario
 		 AND password=:password
 		 ");
+
 		$sentencia->bindParam(":usuario",$usuario);
 		$sentencia->bindParam(":password",$password);
 		$sentencia->execute();
 	
 		$lista_usuarios=$sentencia->fetch(PDO::FETCH_LAZY);
-	  
+		
 		if($lista_usuarios['n_usuario']>0){
 			$_SESSION['usuario']=$lista_usuarios['usuario'];
 			$_SESSION['logueado']=true;
-
+			header("Location:../admin/");
 		}else{
+			
 			$mensaje="ERROR: El usuario o la contraseña son incorrectas";
 		}
-}
+	}
 ?>
 
 <!doctype html>
