@@ -82,7 +82,7 @@ if($_POST){
 						</label>
 					</div>
 						<div class="w-50 text-md-right">
-							<a href="reestablecer.php" style="color: #fff">Olvidaste la contraseña?</a>
+							<a href="restablecer.php" style="color: #fff">Olvidaste la contraseña?</a>
 							<a href="registro.php" style="color: #fff">Registrarme</a>	
 						</div>
 	            </div>
