@@ -21,31 +21,18 @@ if($_POST){
   
   
 	$mensaje="Registro agregado con exito.";
-	header("Location:index.php?mensaje=".$mensaje);
-  
-  
-  
+	header("Location:index.php");
   }
-  
-
 ?>
-
-
-
-
 <!doctype html>
 <html lang="es">
   <head>
   	<title>Registro</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
 	<link rel="stylesheet" href="css/style.css">
-
 	</head>
 	<body class="img js-fullheight" style="background-image: url(../img/fotos/fondos/32.jpg);">
 	<section class="ftco-section">
@@ -77,19 +64,16 @@ if($_POST){
 				<div class="form-group">
 					<a name="" id="" class="form-control btn btn-primary submit px-3" href="index.php" role="button">Cancelar</a>
 	            </div>
-				
 	          </form>
 		      </div>
 				</div>
 			</div>
 		</div>
 	</section>
-
 	<script src="js1/jquery.min.js"></script>
   <script src="js1/popper.js"></script>
   <script src="js1/bootstrap.min.js"></script>
   <script src="js1/main.js"></script>
-
 	</body>
 </html>
 

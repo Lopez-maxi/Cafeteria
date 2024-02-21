@@ -63,7 +63,7 @@ if(!$registros = 0){
         
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Reestablecer password';
+        $mail->Subject = 'Restablecer password';
         $mail->Body ='<link href="https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap" rel="stylesheet" type="text/css">
         </head>
         <main class="container" >
@@ -136,20 +136,15 @@ if(!$registros = 0){
     echo 'error';
 }
 ?>
-
 <!doctype html>
 <html lang="es">
   <head> 
   	<title>Malusa Coffee</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
 	<link rel="stylesheet" href="css/style.css">
-
 	</head>
 	<body class="img js-fullheight" style="background-image: url(../img/fotos/fondos/13.jpg);">
 	<section class="ftco-section">
@@ -163,14 +158,14 @@ if(!$registros = 0){
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
 					<br><br>
-		      	<h3 class="mb-4 text-center">Reestablecer contraseña</h3>
+		      	<h3 class="mb-4 text-center">Restablecer contraseña</h3>
 				<br>
 				<form action="recuperar.php" method="post">
 				<div class="form-group">
 		      			<input type="text" name="correo" id="correo" class="form-control" placeholder="Correo  electronico" required>
 		      		</div><br>
 	            <div class="form-group">
-	            	<button type="submit" name="submit" class="form-control btn btn-primary submit px-3">Reestablecer</button>
+	            	<button type="submit" name="submit" class="form-control btn btn-primary submit px-3">Restablecer</button>
 	            </div>
 				<div class="form-group">
 					<a name="" id="" class="form-control btn btn-primary submit px-3" href="index.php" role="button">Cancelar</a>
