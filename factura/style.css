@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+}
+h1 {
+    text-align: center;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+.buyer-info, .seller-info {
+    display: inline-block;
+    vertical-align: top;
+    width: 49%;
+    margin-bottom: 1rem;
+}
+.buyer-info p, .seller-info p {
+    width: calc(50% - 0.5rem);
+    padding: 0.5rem;
+    box-sizing: border-box;
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.1);
+    margin: 0;
+}
+.buyer-info p:nth-child(odd), .seller-info p:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+.buyer-info p:nth-child(even), .seller-info p:nth-child(even) {
+    background-color: #fff;
+}
+.buyer-info p:first-child, .seller-info p:first-child {
+    font-weight: bold;
+}
+.buyer-info p:last-child, .seller-info p:last-child {
+    font-weight: bold;
+    text-align: left;
+}
+.container {
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    margin-bottom: 1rem; /* Añade un margen inferior para separar las secciones del contenido siguiente */
+}
