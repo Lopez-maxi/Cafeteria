@@ -78,33 +78,43 @@ $sentencia->execute();
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
     <title>Document</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <script
-        src="https://code.jquery.com/jquery-3.7.0.min.js"
-        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
-        crossorigin="anonymous">
-    </script> 
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-image: url('../img/fotos/11.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 115vh;
+            padding: 0;
+        }
+        .display-4 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            height: 15vh
+        }
+      
+       
+    </style>
 </head>
-
 <body>
-<head>
-<link rel="stylesheet" href="estilo.css">
-</head>
-
 <header>
     <!-- place navbar here -->
-    
         <nav class="navbar navbar-expand navbar-light bg-transparent">
             <div class="nav navbar-nav">
                <h3> <a class="nav-item nav-link active" href="../index.php" aria-current="page">Home <span class="visually-hidden">Administrador</span></a></h3>
@@ -112,17 +122,17 @@ $sentencia->execute();
             </div>
         </nav>
   </header>
-  
 <br><br><br><br><br><br><br><br>
 <div class="container">
     <div class="p-5 mb-4 bg-transparent rounded-3">
         <div class="container-fluid py-5">
-            <h1 class="display-4 fw-bold text-center text-white">¡ LISTO !</h1><br>
-            <h1 class="display-4 fw-bold text-center text-white">PAGO APROBADO !!</h1>
-            <p class="display-4 fw-bold text-center text-white ">
-                
-            </p>
+            <h1 class="display-4 fw-bold text-center text-white">¡ LISTO !  PAGO APROBADO !!</h1>
+            
+            <a class="btn btn-primary  fw-bold text-center" href="#">Ver factura </a>
+
+            <a class="btn btn-primary  fw-bold text-center" href="#" type="button" >Enviarme la factura por E-mail</a>
         </div>
 </div>
 </div>
 </body>
+</html>
