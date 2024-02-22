@@ -120,30 +120,29 @@ $lista_menu=$sentencia->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <!-- Menu End -->
 
-
-    <!-- Footer Start -->
-    <div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
+ <!-- Footer Start -->
+ <div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
         <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-">
         <div class="col-lg-3 col-md-6 mb-5">
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;"><?php echo $lista_configuraciones[20]['valor'];?></h4>
-                <p><i class="fa fa-map-marker-alt mr-2"></i><?php echo $lista_configuraciones[21]['valor'];?></p>
-                <p><i class="fa fa-phone-alt mr-2"></i><?php echo $lista_configuraciones[22]['valor'];?></p>
-                <p class="m-0"><i class="fa fa-envelope mr-2"></i><?php echo $lista_configuraciones[23]['valor'];?></p>
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;"><?php echo $lista_configuraciones[19]['valor'];?></h4>
+                <p><i class="fa fa-map-marker-alt mr-2"></i><?php echo $lista_configuraciones[20]['valor'];?></p>
+                <p><i class="fa fa-phone-alt mr-2"></i><?php echo $lista_configuraciones[21]['valor'];?></p>
+                <p class="m-0"><i class="fa fa-envelope mr-2"></i><?php echo $lista_configuraciones[22]['valor'];?></p>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;"><?php echo $lista_configuraciones[24]['valor'];?></h4>
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;"><?php echo $lista_configuraciones[23]['valor'];?></h4>
                 <div>
-                    <h6 class="text-white text-uppercase"><?php echo $lista_configuraciones[25]['valor'];?></h6>
-                    <p><?php echo $lista_configuraciones[26]['valor'];?></p>
-                    <h6 class="text-white text-uppercase"><?php echo $lista_configuraciones[27]['valor'];?></h6>
-                    <p><?php echo $lista_configuraciones[28]['valor'];?></p>
+                    <h6 class="text-white text-uppercase"><?php echo $lista_configuraciones[24]['valor'];?></h6>
+                    <p><?php echo $lista_configuraciones[25]['valor'];?></p>
+                    <h6 class="text-white text-uppercase"><?php echo $lista_configuraciones[26]['valor'];?></h6>
+                    <p><?php echo $lista_configuraciones[27]['valor'];?></p>
                 </div>
             </div>
         </div>
         <div class="container-fluid text-center text-white border-top mt-4 py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
-            <p class="mb-2 text-white"><?php echo $lista_configuraciones[29]['valor'];?> &copy; <a class="font-weight-bold" href="#"><?php echo $lista_configuraciones[30]['valor'];?></a>. <br><?php echo $lista_configuraciones[31]['valor'];?></a></p>
+            <p class="mb-2 text-white"><?php echo $lista_configuraciones[28]['valor'];?> &copy; <a class="font-weight-bold" href="#"><?php echo $lista_configuraciones[29]['valor'];?></a>. <br><?php echo $lista_configuraciones[30]['valor'];?></a></p>
         </div>
     </div>
     <!-- Footer End -->
