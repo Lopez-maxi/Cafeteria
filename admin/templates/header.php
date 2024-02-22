@@ -40,7 +40,7 @@
 
         <nav class="navbar navbar-expand navbar-light bg-light">
             <div class="nav navbar-nav">
-                <a class="nav-item nav-link active" href="../index.php" aria-current="page">Home <span class="visually-hidden">Administrador</span></a>
+                <a class="nav-item nav-link active" href="<?php echo $url_base;?>../index.php" aria-current="page">Home <span class="visually-hidden">Administrador</span></a>
                 <a class="nav-item nav-link" href="<?php echo $url_base;?>secciones/nosotros">Nosotros</a>
                 <a class="nav-item nav-link" href="<?php echo $url_base;?>secciones/servicios">Servicios</a>
                 <a class="nav-item nav-link" href="<?php echo $url_base;?>secciones/servicios">Servicios</a>

@@ -7,29 +7,24 @@ if($_POST){
      $password=(isset($_POST['password']))?$_POST['password']:"";
 	
 	     //SELECCIONAR REGISTROS
-		 $sentencia= $conexion->prepare("SELECT *, count(*) as n_usuario
-		 FROM `tbl_usuarios` 
-		 WHERE usuario=:usuario
-		 AND password=:password
-		 ");
-
-		$sentencia->bindParam(":usuario",$usuario);
-		$sentencia->bindParam(":password",$password);
-		$sentencia->execute();
-	
-		$lista_usuarios=$sentencia->fetch(PDO::FETCH_LAZY);
+		 $sentencia= $conexion->prepare("SELECT * FROM `tbl_usuarios` WHERE `tbl_usuarios`.`usuario` ='$usuario'");
+		 $sentencia->execute();
+		 $lista_usuarios=$sentencia->fetch(PDO::FETCH_LAZY);
+		 $rol=$lista_usuarios['rol'];
 		
-		if($lista_usuarios['n_usuario']>0){
-			$_SESSION['usuario']=$lista_usuarios['usuario'];
+		
+		if($lista_usuarios['usuario']==$usuario && $lista_usuarios['password']==$password){
 			$_SESSION['logueado']=true;
-			header("Location:../admin/");
-		}else{
-			
+				if($lista_usuarios['rol']=='admin'){
+					header("location:../admin");
+				}else{
+					header("location:../index.php");
+				}
+		}else{	
 			$mensaje="ERROR: El usuario o la contraseña son incorrectas";
 		}
 	}
 ?>
-
 <!doctype html>
 <html lang="es">
   <head>
@@ -66,8 +61,6 @@ if($_POST){
 
 	            <div class="form-group">
 	              <input id="password-field" id="password" name="password" type="password" class="form-control" placeholder="Password" required>
-	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-	            </div>
 
 	            <div class="form-group">
 	            	<button type="submit" class="form-control btn btn-primary submit px-3">Entrar</button>
