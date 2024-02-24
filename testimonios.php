@@ -31,31 +31,31 @@ $lista_configuraciones=$sentencia->fetchAll(PDO::FETCH_ASSOC);
     <link href="css/style.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar Start -->
+   <!-- Navbar Start -->
     
-    <div class="container-fluid p-0 nav-bar">
-        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
-        <img  src="img/fotos/logos/4-removebg-preview.png" width="200" height="200">
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div class="navbar-nav ml-auto p-4">
-                    <a href="index.php" class="nav-item nav-link active">Home</a>
-                    <a href="nosotros.php" class="nav-item nav-link">Nosotros</a>
-                    <a href="servicios.php" class="nav-item nav-link">Servicios</a>
-                    <a href="menu.php" class="nav-item nav-link">Menu</a>    
-                    <a href="reservas.php" class="nav-item nav-link">Reservaciones</a>
-                    <a href="testimonios.php" class="nav-item nav-link">Testimonios</a>
-                    <a href="contactanos.php" class="nav-item nav-link">Contactanos</a>
-                    <a href="login/index.php" class="nav-item nav-link"><i
-                    class="fas fa-user fa-fw"></i></a>  
-                    <?php if($mensaje!=""){?>
-                    <a href="carrito_de_compras/index.php" class="nav-item nav-link">Carrito (<?php
-                    echo(empty($_SESSION['carrito']))?0:count($_SESSION['carrito']);
-                    ?>)</a><?php }?>
-                </div>
-            </div>  
-        </nav>
+   <div class="container-fluid p-0 nav-bar">
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <img src="img/fotos/logos/4-removebg-preview.png" width="200" height="200">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4">
+                <a href="index.php" class="nav-item nav-link active">Home</a>
+                <a href="nosotros.php" class="nav-item nav-link">Nosotros</a>
+                <a href="servicios.php" class="nav-item nav-link">Servicios</a>
+                <a href="menu.php" class="nav-item nav-link">Menu</a>    
+                <a href="reservas.php" class="nav-item nav-link">Reservaciones</a>
+                <a href="testimonios.php" class="nav-item nav-link">Testimonios</a>
+                <a href="contactanos.php" class="nav-item nav-link">Contactanos</a>
+                <?php if(!isset($_SESSION['logueado'])){ ?>
+                    <a href="login/index.php" class="nav-item nav-link"><i class="fas fa-user fa-fw"></i></a>  
+                <?php } ?>
+                <?php if(isset($_SESSION['logueado'])){ ?>
+                    <a href="index.php?cerrar_sesion=1" class="nav-item nav-link">Cerrar sesion</a>  
+                <?php } ?>
+            </div>
+        </div>  
+    </nav>
+</div>
         <div class="container">
-            <?php $mensaje; ?>
         </div>
     </div>
     </div>

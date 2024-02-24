@@ -14,68 +14,57 @@ $lista_menu=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
-    <title>KOPPEE - Coffee Shop HTML Template</title>
+    <title>Proyecto final</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free Website Template" name="keywords">
     <meta content="Free Website Template" name="description">
-
-    <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
-
-    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.min.css" rel="stylesheet">
 </head>
-
 <body>
-      <!-- Navbar Start -->
+    <!-- Navbar Start -->
+    
     <div class="container-fluid p-0 nav-bar">
-        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
-            <a href="index.php" class="navbar-brand px-lg-4 m-0">
-            </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div class="navbar-nav ml-auto p-4">
-                    <a href="index.php" class="nav-item nav-link active">Home</a>
-                    <a href="nosotros.php" class="nav-item nav-link">Nosotros</a>
-                    <a href="servicios.php" class="nav-item nav-link">Servicios</a>
-                    <a href="menu.php" class="nav-item nav-link">Menu</a>    
-                    <a href="reservas.php" class="nav-item nav-link">Reservaciones</a>
-                    <a href="testimonios.php" class="nav-item nav-link">Testimonios</a>
-                    <a href="contactanos.php" class="nav-item nav-link">Contactanos</a>
-                    <a href="login/index.php" class="nav-item nav-link"><i
-                    class="fas fa-user fa-fw"></i></a>  
+    <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+        <img src="img/fotos/logos/4-removebg-preview.png" width="200" height="200">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto p-4">
+                <a href="index.php" class="nav-item nav-link active">Home</a>
+                <a href="nosotros.php" class="nav-item nav-link">Nosotros</a>
+                <a href="servicios.php" class="nav-item nav-link">Servicios</a>
+                <a href="menu.php" class="nav-item nav-link">Menu</a>    
+                <a href="reservas.php" class="nav-item nav-link">Reservaciones</a>
+                <a href="testimonios.php" class="nav-item nav-link">Testimonios</a>
+                <a href="contactanos.php" class="nav-item nav-link">Contactanos</a>
+                 <?php if(!isset($_SESSION['logueado'])){ ?>
+                    <a href="login/index.php" class="nav-item nav-link"><i class="fas fa-user fa-fw"></i></a>  
+                <?php } ?>
+                <?php if(isset($_SESSION['logueado'])){ ?>
                     <?php if($mensaje!=""){?>
                     <a href="carrito_de_compras/index.php" class="nav-item nav-link">Carrito (<?php
                     echo(empty($_SESSION['carrito']))?0:count($_SESSION['carrito']);
                     ?>)</a><?php }?>
-                </div>
-            </div>  
-        </nav>
+                    <a href="index.php?cerrar_sesion=1" class="nav-item nav-link">Cerrar sesion</a>  
+                <?php } ?>
+            </div>
+        </div>  
+    </nav>
+</div>
         <div class="container">
-            <?php $mensaje; ?>
         </div>
     </div>
     </div>
-
     <!-- Navbar End -->
-
+     
     <!-- Page Header Start -->
     <div class="container-fluid page-header mb-5 position-relative overlay-bottom">
         <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">

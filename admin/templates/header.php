@@ -3,7 +3,10 @@
 
     $url_base="http://localhost/carrito/admin/";
  
-
+    if(isset($_GET['cerrar_sesion'])){
+      session_destroy();
+      header("Location: $url_base../index.php");
+    }
 
 
 ?>
@@ -50,7 +53,8 @@
                 <a class="nav-item nav-link" href="<?php echo $url_base;?>secciones/mensajes">Mensajes</a>
                 <a class="nav-item nav-link" href="<?php echo $url_base;?>secciones/configuraciones">Configuraciones</a>
                 <a class="nav-item nav-link" href="<?php echo $url_base;?>secciones/usuarios">Usuarios</a>
-                <a class="nav-item nav-link" href="<?php echo $url_base;?>cerrar.php">Cerrar sesion</a>
+                
+                <a class="nav-item nav-link" href="<?php echo $url_base;?>../index.php">Cerrar sesion</a>
             </div>
         </nav>
   </header>
