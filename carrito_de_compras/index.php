@@ -31,11 +31,10 @@
 
         <nav class="navbar navbar-expand navbar-light bg-light">
             <div class="nav navbar-nav">
-                <a class="nav-item nav-link active" href="../index.php" aria-current="page">Home <span class="visually-hidden">Administrador</span></a>
+                <a class="nav-item nav-link active" href="../menu.php" aria-current="page">Home<span class="visually-hidden">Administrador</span></a>
                 <a class="nav-item nav-link">Carrito (<?php
                     echo(empty($_SESSION['carrito']))?0:count($_SESSION['carrito']);
                     ?>)</a>
-                <a class="nav-item nav-link" href="<?php echo $url_base;?>cerrar.php">Cerrar sesion</a>
             </div>
         </nav>
   </header>

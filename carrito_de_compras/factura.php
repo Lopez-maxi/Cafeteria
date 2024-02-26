@@ -1,6 +1,6 @@
-<?php
+<?php 
 include('../admin/bd.php');
-include('../carrito_de_compras/carrito.php');
+include('carrito.php');
 
 
 //MOSTRAMOS LOS DETALLES DE FACTURACION

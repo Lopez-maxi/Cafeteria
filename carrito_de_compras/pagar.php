@@ -63,6 +63,10 @@ if($_POST){
     $sentencia->execute();
     $idVentas=$conexion->lastInsertId();
 
+   
+
+//
+
     foreach($_SESSION['carrito'] as $indice=>$registro){
 
         $sentencia=$conexion->prepare("INSERT INTO `tbl_detalledeventas` 
@@ -74,6 +78,37 @@ if($_POST){
         $sentencia->bindParam(":precio_unitario",$registro['precio']);
         $sentencia->bindParam(":cantidad",$registro['cantidad']);
         $sentencia->execute();
+        $precio_unitario=$registro['precio'];
+        $cantidad=$registro['cantidad'];
+        $a=$registro['cantidad'];
+//tbl_facturas
+
+                
+        $sentencia= $conexion->prepare("SELECT p.titulo AS 'nombre_producto'
+        FROM tbl_menu p
+        JOIN TBL_detalledeventas d ON p.id = d.id_producto
+        WHERE d.id_venta = :id_venta");
+        $sentencia->bindParam(':id_venta', $idVentas);
+        $sentencia->execute();
+
+        $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+        $nombre_producto = $resultado['nombre_producto'];
+
+         $sentencia= $conexion->prepare("INSERT INTO `tbl_facturas` 
+         (`id_venta`,`correo`, `total`, `precio_unitario`,`nombre_producto`, `cantidad`) 
+         VALUES (:id_venta,:correo, :total, :precio_unitario,:nombre_producto, :cantidad);");
+    
+        $sentencia->bindParam(":id_venta", $idVentas);
+        $sentencia->bindParam(":correo", $correo);
+        $sentencia->bindParam(":total", $total); 
+        $sentencia->bindParam(":precio_unitario", $precio_unitario); 
+        $sentencia->bindParam(":cantidad", $cantidad);
+        $sentencia->bindParam(":nombre_producto", $nombre_producto);
+        $sentencia->execute();
+        $factura=$conexion->lastInsertId();
+        
+        
+        
     }
      
 }
