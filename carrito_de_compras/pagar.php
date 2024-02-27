@@ -81,19 +81,26 @@ if($_POST){
         $precio_unitario=$registro['precio'];
         $cantidad=$registro['cantidad'];
         $a=$registro['cantidad'];
+
+
+
+
 //tbl_facturas
+     
+            $sentencia = $conexion->prepare("SELECT p.titulo AS 'nombre_producto'
+            FROM tbl_menu p
+            JOIN TBL_detalledeventas d ON p.id = d.id_producto
+            WHERE d.id_venta = :id_venta");
+            $sentencia->bindParam(':id_venta', $idVentas);
+            $sentencia->execute();
 
-                
-        $sentencia= $conexion->prepare("SELECT p.titulo AS 'nombre_producto'
-        FROM tbl_menu p
-        JOIN TBL_detalledeventas d ON p.id = d.id_producto
-        WHERE d.id_venta = :id_venta");
-        $sentencia->bindParam(':id_venta', $idVentas);
-        $sentencia->execute();
+            $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 
-        $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
-        $nombre_producto = $resultado['nombre_producto'];
+            foreach ($resultado as $producto) {
+            $nombre_producto = $producto['nombre_producto'];
+            }
 
+        
          $sentencia= $conexion->prepare("INSERT INTO `tbl_facturas` 
          (`id_venta`,`correo`, `total`, `precio_unitario`,`nombre_producto`, `cantidad`) 
          VALUES (:id_venta,:correo, :total, :precio_unitario,:nombre_producto, :cantidad);");
