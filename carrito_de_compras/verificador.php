@@ -127,10 +127,7 @@ $sentencia->execute();
     <div class="p-5 mb-4 bg-transparent rounded-3">
         <div class="container-fluid py-5">
             <h1 class="display-4 fw-bold text-center text-white">¡ LISTO !  PAGO APROBADO !!</h1>
-            
-            <a class="btn btn-primary  fw-bold text-center" href="factura.php">Ver factura </a>
-
-            <a class="btn btn-primary  fw-bold text-center" href="#" type="button" >Enviarme la factura por E-mail</a>
+            <a class="btn btn-primary  fw-bold text-center" href="descargar.php">Ver factura </a>
         </div>
 </div>
 </div>
