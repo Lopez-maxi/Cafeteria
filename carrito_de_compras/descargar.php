@@ -82,7 +82,7 @@ $pdf->SetTextColor(34,68,136);
 //$pdf->SetTextColor(245,245,205); //Gris claro
 //$pdf->SetTextColor(100, 0, 0); //Color Carne
 $pdf->SetFont('helvetica','B', 15); 
-$pdf->Cell(100,6,'FACTURA DE COMPRA',0,0,'C');
+$pdf->Cell(100,6,'FACTURA DE COMPRA',0,1,'C');
 
 
 $pdf->Ln(10); //Salto de Linea
