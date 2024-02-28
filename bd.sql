@@ -97,6 +97,17 @@ CREATE TABLE IF NOT EXISTS tbl_usuarios (
   correo VARCHAR(255) NOT NULL
 );
 
+-- Estructura de tabla para la tabla `facturas`
+  CREATE TABLE IF NOT EXISTS tbl_facturas (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  id_venta INT(11) NOT NULL,
+  correo VARCHAR(255) NOT NULL,
+  nombre_producto VARCHAR(255) NOT NULL,
+  cantidad INT(11) NOT NULL,
+  precio_unitario INT(11) NOT NULL,
+  total INT(11) NOT NULL
+  )
+
 
 -- Volcado de datos para la tabla `configuraciones`
 INSERT INTO tbl_configuraciones (nombre, valor)
